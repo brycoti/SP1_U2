@@ -1,13 +1,16 @@
 <?php
 // Ejercicio 1
+echo "<h2>Ejercicio 1</h2>";
 
    $promocion = 2023; // num entero 
-   var_dump($promocion);
    $nota = 5.05; // float
-   var_dump($nota);
    $ciudad = "Barcelona"; // String
-   var_dump($ciudad);
    $estudiante = true; // booleano
+   define("NOMBRECOMPLETO", "Bryan Cozar Titos"); // Const en PHP
+
+   var_dump($promocion);
+   var_dump($nota);
+   var_dump($ciudad);
    var_dump($estudiante);
 
    echo " <br><br> Llevo estudiando programacion  desde el primer semestre de "
@@ -16,12 +19,13 @@
    . ". Si me preguntan que soy estudiante de programacion de PHP, la respuesta es "
       . $estudiante . "! <br><br>"; 
 
-   define("NOMBRECOMPLETO", "Bryan Cozar Titos"); // Const en PHP
+   
    echo "Mi nombre y apellidos son: " . NOMBRECOMPLETO  . "<hr>";
 ?>
 
 <?php
 // Ejercicio 2 
+echo "<h2>Ejercicio 2</h2>";
 
    $holaMundo = "Hello, World!";
    $curso = "Aquest és el curs de PHP";
@@ -29,12 +33,15 @@
    echo strtoupper($holaMundo) . "<br>"; // funcion Echo que imprime  los caracteres en upperCase
    echo strlen($holaMundo) . "<br>"; // devuelve la cantidad de caracteres
    echo strrev($holaMundo) . "<br>"; // imprime una cadena al reves
-   echo $holaMundo . " " . $curso . ". <hr>"; // imprime dos variables string
+   echo $holaMundo . " " . $curso . ". <hr>"; // imprime dos variables string concatenadas
 ?>
 
 <?php
 // Ejercicio 3
+echo "<h2>Ejercicio 3</h2>";
+
 // Declaracion y asignacion 
+   echo '<h2>a. Impresión por pantalla de variables </h2>';
    $X = 100;
    $Y = 200;
    $N = 95.55;
@@ -67,12 +74,12 @@
    echo "Doble de X: " . $doble_x . "<br>";
    echo "Doble de Y: " . $doble_y . "<br>";
    echo "Doble de N: " . $doble_n . "<br>";
-   echo "Doble de M: " . $doble_m . "<br>";
+   echo "Doble de M: " . $doble_m . "<br><br>";
    echo "Suma total de X + Y + N + M = " . $suma_total . "<br>";
    echo "Producte total de X + Y + N + M = " . $producto_total . "<br><br>";
 ?>
 
-<h2>Calculadora</h2>
+<h2> b. Calculadora</h2>
 <form method="post" action="">
    <!-- post envia datos y action vacio para funcione en la misma pagina  -->
 	<label for="num1">Número 1:</label>
@@ -138,6 +145,10 @@ if (isset($_POST['calcular'])) {
 ?>
 <hr>
 
+<?php
+// Ejercicio 4
+echo "<h2>Ejercicio 4</h2>";
+?>
 
 <form method="post" action="">
 		<label for="maximo">Número máximo:</label>
@@ -155,6 +166,12 @@ function contar($maximo, $incremento) {
    }
 }
 
+
+/* el isset establece si se envia el boton,
+ tendrá en cuenta si el numero maximo esta lleno o bien le da por valor 10 por defecto
+el incremento de contador es un campo HTML obligatorio
+*/
+
 if (isset($_POST['contar'])) {
    if (!empty($_POST['maximo'])) {
       $maximo = $_POST['maximo'];
@@ -165,64 +182,59 @@ if (isset($_POST['contar'])) {
     $incremento = $_POST['incremento'];
    contar($maximo, $incremento);
 }
-
 ?>
 
-<h2>Ejercicio 5</h2>
+<?php
+// Ejercicio 5
+echo "<h2>Ejercicio 5</h2>";
+?>
 
 <form   method="post" action="">
-    <label for="nota">Nota del estudiente:</label>
+    <label for="nota">Introduzca la nota del estudiente entre 0 y 100:</label>
     <input type="text" name="nota" id="nota"><br><br>
     <button type="submit" name="enviar">Enviar notas</button>
 </form>
 
-
-
-
 <?php
-
 if (isset($_POST['enviar'])) {
     $nota = $_POST['nota'];
-  echo  verificarNota($nota);
+  echo  "La nota es de $nota, así que tu categoria es " . verificarNota($nota);
  }
 
 
 function verificarNota($nota) {
     if ($nota >= 60) {
             $resultado = "Primera división";
-        } elseif ($nota >= 45 && $nota <=59) {
+        } elseif ($nota >= 45) {
             $resultado = "Segunda división";
-        } elseif ($nota >= 33 && $nota <=44) {
+        } elseif ($nota >= 33) {
             $resultado = "Tercera división";
         } else {
-            $resultado = "Suspenso";
+            $resultado = "suspenso";
         }
 
         return $resultado;
 }
 ?>
 <br><br><hr>
-<h2>Ejercicio 6</h2>
-
 
 <?php 
-
-
+// Ejercicio 6
+echo "<h2>Ejercicio 6</h2>";
 echo isBitten();
 
 
+// la funcion rand() establece una cantidad que si es igual o mayor a 51 devuelve true 
 function isBitten() {
    echo  "Mi suerte ha sido del "  . $suerte = rand(1, 100) . "% <br>";
 
     if ($suerte >=51) {
-        $opcion = "TRUE";
+        $opcion = true;
     } else {
-        $opcion = "FALSE";
+        $opcion = false;
     }
 
-    return $opcion;
+    return var_dump($opcion);
 }
-
-
 ?>
  
