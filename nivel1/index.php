@@ -148,40 +148,20 @@ if (isset($_POST['calcular'])) {
 <?php
 // Ejercicio 4
 echo "<h2>Ejercicio 4</h2>";
-?>
 
-<form method="post" action="">
-		<label for="maximo">Número máximo:</label>
-		<input type="number" name="maximo" id="maximo"><br>
-		<label for="incremento">Incremento:</label>
-		<input type="number" name="incremento" id="incremento" required><br>
-		<input type="submit" name="contar" value="Contar">
-	</form>
 
-<?php
+function contar($incremento, $maximo) {
+   if ($maximo < $incremento){
+      echo "El valor máximo tiene que ser superior al incremento!";
+   }
 
-function contar($maximo, $incremento) {
    for ($i = 1; $i <= $maximo; $i += $incremento) {
        echo "$i<br>";
    }
 }
-
-
-/* el isset establece si se envia el boton,
- tendrá en cuenta si el numero maximo esta lleno o bien le da por valor 10 por defecto
-el incremento de contador es un campo HTML obligatorio
-*/
-
-if (isset($_POST['contar'])) {
-   if (!empty($_POST['maximo'])) {
-      $maximo = $_POST['maximo'];
-   } else {
-      $maximo = 10;
-   }
-   
-    $incremento = $_POST['incremento'];
-   contar($maximo, $incremento);
-}
+   contar(2,11);
+   echo "<br>";
+   contar(6,13);
 ?>
 
 <?php
